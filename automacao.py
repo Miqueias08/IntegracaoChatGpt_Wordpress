@@ -35,9 +35,9 @@ for indice, linha in dados.iterrows():
             #                      ARTIGO                         -
             #------------------------------------------------------
             response = client.chat.completions.create(
-                model="gpt-3.5-turbo",
+                model="gpt-4-turbo",
                 messages=[
-                    {"role": "system", "content": f"Escreva um artigo com no minimo 1200 palavras sobre o tema '{busca}'."},
+                    {"role": "system", "content": f"Escreva um artigo com no minimo 2000 palavras sobre o tema '{busca}'."},
                 ]
             )
             titulo_artigo = busca
