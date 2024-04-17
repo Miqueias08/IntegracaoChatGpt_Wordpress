@@ -37,7 +37,10 @@ for indice, linha in dados.iterrows():
             response = client.chat.completions.create(
                 model="gpt-4-turbo",
                 messages=[
-                    {"role": "system", "content": f"Escreva um artigo com no minimo 2000 palavras sobre o tema '{busca}'."},
+                    {
+                        "role": "system", 
+                        "content": f"Escreva um artigo sobre {busca} com no minimo 2000 palavras sem espacos entre as linhas,O texto deve ser formatado em html seguindo,"
+                        +"o padrão de post do wordpress titulo h2, tambem quero um sumario'."},
                 ]
             )
             titulo_artigo = busca
@@ -101,7 +104,7 @@ for indice, linha in dados.iterrows():
                 #-------------------------------------------------------
                 response_thumb = client.images.generate(
                     model="dall-e-3",
-                    prompt=f"A imagem que representa o tema '{busca}':\n vai ser usada para capa do artigo.",
+                    prompt=f"A imagem que representa o tema '{busca}':\n vai ser usada para capa do artigo, nao quero desenhos quero uma imagem de qualidade e real.",
                     n=1,
                 )
                 # Obter a URL da imagem gerada
